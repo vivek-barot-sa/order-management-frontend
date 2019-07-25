@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
     .subscribe(res => {
       localStorage.setItem('token', res.token);
       localStorage.setItem('fname', res.uname);
-      // this._router.navigate(['/special']);
       if(res.role === "Purveyor"){
         this._router.navigate(['/purveyorDashboard']);
       }else{
