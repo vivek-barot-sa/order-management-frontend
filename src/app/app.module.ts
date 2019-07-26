@@ -16,6 +16,7 @@ import { TokenInterceptorService }  from './token-interceptor.service';
 import { PurveyorDashboardComponent } from './purveyor-dashboard/purveyor-dashboard.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { SearchCustomerComponent } from './search-customer/search-customer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     SpecialEventsComponent,
     PurveyorDashboardComponent,
     CustomerDashboardComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    SearchCustomerComponent
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 
 export class RegisterComponent implements OnInit {
 
-  registerUserData = {}
+  registerUserData = {
+    uniqId: Math.floor(100000 + Math.random() * 999999) 
+  }
 
   constructor(private _auth: AuthService, private _router: Router) { }
 
@@ -21,8 +23,7 @@ export class RegisterComponent implements OnInit {
     this._auth.registerUser(this.registerUserData)
     .subscribe(
       res => {
-        console.log(res);
-        localStorage.setItem('userInfo.token', res.token);
+        localStorage.setItem('token', res.token);
         this._router.navigate(['/login']);
       }, 
       err => console.log(err)
