@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('email', res.uemail);
       localStorage.setItem('role', res.urole);
       
-      if(localStorage.getItem('role') === "Purveyor"){
+      if(localStorage.getItem('role') === "purveyor"){
         this._router.navigate(['/purveyorDashboard']);
       }else{
         this._router.navigate(['/customerDashboard']);

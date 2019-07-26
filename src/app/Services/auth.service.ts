@@ -29,6 +29,14 @@ export class AuthService {
     return !!localStorage.getItem('token');
   }
 
+  checkCustomerDashboard(){
+    if(this.loggedIn && localStorage.getItem('role') === "purveyor"){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   logoutUser(){
     localStorage.clear();
     this._router.navigate(['/login']);
