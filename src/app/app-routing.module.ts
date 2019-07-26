@@ -7,12 +7,17 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
 import { PurveyorDashboardComponent } from './purveyor-dashboard/purveyor-dashboard.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
+  },
+  {
+    path: 'updateProfile',
+    component: UpdateProfileComponent
   },
   {
     path: 'purveyorDashboard',

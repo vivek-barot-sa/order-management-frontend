@@ -21,7 +21,13 @@ export class LoginComponent implements OnInit {
     .subscribe(res => {
       localStorage.setItem('token', res.token);
       localStorage.setItem('fname', res.uname);
-      if(res.role === "Purveyor"){
+      localStorage.setItem('id', res.uid);
+      localStorage.setItem('address', res.uaddress);
+      localStorage.setItem('pincode', res.upincode);
+      localStorage.setItem('email', res.uemail);
+      localStorage.setItem('role', res.urole);
+      
+      if(localStorage.getItem('role') === "Purveyor"){
         this._router.navigate(['/purveyorDashboard']);
       }else{
         this._router.navigate(['/customerDashboard']);

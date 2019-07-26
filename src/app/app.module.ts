@@ -15,6 +15,7 @@ import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService }  from './token-interceptor.service';
 import { PurveyorDashboardComponent } from './purveyor-dashboard/purveyor-dashboard.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CustomerDashboardComponent } from './customer-dashboard/customer-dashbo
     EventsComponent,
     SpecialEventsComponent,
     PurveyorDashboardComponent,
-    CustomerDashboardComponent
+    CustomerDashboardComponent,
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,
