@@ -17,20 +17,24 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'searchCustomer',
-    component: SearchCustomerComponent
+    path: 'searchcustomer',
+    component: SearchCustomerComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'updateProfile',
-    component: UpdateProfileComponent
+    component: UpdateProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'purveyorDashboard',
-    component: PurveyorDashboardComponent
+    component: PurveyorDashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'customerDashboard',
-    component: CustomerDashboardComponent
+    component: CustomerDashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'events',

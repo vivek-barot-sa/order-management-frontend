@@ -18,7 +18,11 @@ export class UpdateProfileComponent implements OnInit {
     email: localStorage.getItem('email')
   }
 
-  constructor(private _auth: AuthService, private _router: Router) {}
+  constructor(private _auth: AuthService, private _router: Router) {
+    if(!this._auth.loggedIn()){
+      this._router.navigate(["/login"]);
+    }
+  }
 
   ngOnInit() {
   }
@@ -26,13 +30,12 @@ export class UpdateProfileComponent implements OnInit {
   updateUser(){
     this._auth.updateUser(this.updatedUserData)
     .subscribe(res => {
-      localStorage.setItem('fname', this.updatedUserData.name);
-      localStorage.setItem('address', this.updatedUserData.address);
-      localStorage.setItem('pincode', this.updatedUserData.pincode);
-      localStorage.setItem('email', this.updatedUserData.email);
+        localStorage.setItem('fname', this.updatedUserData.name);
+        localStorage.setItem('address', this.updatedUserData.address);
+        localStorage.setItem('pincode', this.updatedUserData.pincode);
+        localStorage.setItem('email', this.updatedUserData.email);
 
-      this._router.navigate(['/purveyorDashboard']);
-     
+        this._router.navigate(['/purveyorDashboard']);
     }, err => console.log(err));
   }
 }

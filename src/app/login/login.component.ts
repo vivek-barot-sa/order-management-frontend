@@ -11,7 +11,15 @@ export class LoginComponent implements OnInit {
 
   loginUserData = {}
 
-  constructor(private _auth: AuthService, private _router: Router) {}
+  constructor(private _auth: AuthService, private _router: Router) {
+    if(this._auth.loggedIn()){
+      if(localStorage.getItem('role') === "purveyor"){
+        this._router.navigate(['/purveyorDashboard']);
+      }else{
+        this._router.navigate(['/customerDashboard']);
+      }
+    }
+  }
 
   ngOnInit() {
   }
@@ -26,7 +34,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('pincode', res.upincode);
       localStorage.setItem('email', res.uemail);
       localStorage.setItem('role', res.urole);
-      
+
       if(localStorage.getItem('role') === "purveyor"){
         this._router.navigate(['/purveyorDashboard']);
       }else{

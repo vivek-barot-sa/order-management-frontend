@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './Services/auth.service';
+import { CustomersService } from './Services/customers.service';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,5 @@ import { AuthService } from './Services/auth.service';
 export class AppComponent {
   title = 'orderManagement';
 
-  constructor(private _authService: AuthService){}
+  constructor(private _authService: AuthService, private _searchCustomerService: CustomersService){}
 }

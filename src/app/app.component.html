@@ -8,9 +8,9 @@
         <ul class="navbar-nav ml-auto">
             <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
             <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
-            <a class="nav-link" style="cursor: pointer;" *ngIf="_authService.loggedIn() && _authService.checkCustomerDashboard()">Customers</a>
-            <a class="nav-link" style="cursor: pointer;" *ngIf="_authService.loggedIn()" (click)="_authService.updateProfile()">Update Profile</a>
-            <a class="nav-link" style="cursor: pointer;" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>
+            <a class="nav-link" style="cursor: pointer;" *ngIf="_authService.loggedIn() && _authService.checkCustomerDashboard()" (click)="_searchCustomerService.searchCustomer()" routerLink="/searchcustomer" routerLinkActive="active">Customers</a>
+            <a class="nav-link" style="cursor: pointer;" *ngIf="_authService.loggedIn()" (click)="_authService.updateProfile()" routerLink="/updateProfile" routerLinkActive="active">Update Profile</a>
+            <a class="nav-link" style="cursor: pointer;" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" routerLink="/login" routerLinkActive="active">Logout</a>
         </ul>
     </div>
 </nav>
