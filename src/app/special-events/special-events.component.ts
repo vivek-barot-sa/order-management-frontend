@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService } from '../Services/event.service';
+import { EventService } from '../../Helpers/event.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 
 export class SpecialEventsComponent implements OnInit {
-  
+
   specialEvents = [];
 
   constructor(private _eventService: EventService, private _router: Router) {}

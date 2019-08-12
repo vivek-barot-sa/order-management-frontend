@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../Services/auth.service';
+import { AuthService } from '../../Helpers/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   registerUserData = {
-    uniqId: Math.floor(100000 + Math.random() * 999999) 
+    uniqId: Math.floor(100000 + Math.random() * 999999)
   }
 
   constructor(private _auth: AuthService, private _router: Router) { }
@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
       res => {
         // localStorage.setItem('token', res.token);
         this._router.navigate(['/login']);
-      }, 
+      },
       err => console.log(err)
     );
   }

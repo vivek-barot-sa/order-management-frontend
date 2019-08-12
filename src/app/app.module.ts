@@ -9,14 +9,15 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { EventsComponent } from './events/events.component';
 import { SpecialEventsComponent } from './special-events/special-events.component';
-import { AuthService } from './Services/auth.service';
-import { EventService } from './Services/event.service';
+import { AuthService } from '../Helpers/auth.service';
+import { EventService } from '../Helpers/event.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService }  from './token-interceptor.service';
 import { PurveyorDashboardComponent } from './purveyor-dashboard/purveyor-dashboard.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { SearchCustomerComponent } from './search-customer/search-customer.component';
+import { OffersComponent } from './offers/offers.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SearchCustomerComponent } from './search-customer/search-customer.compo
     PurveyorDashboardComponent,
     CustomerDashboardComponent,
     UpdateProfileComponent,
-    SearchCustomerComponent
+    SearchCustomerComponent,
+    OffersComponent
   ],
   imports: [
     BrowserModule,

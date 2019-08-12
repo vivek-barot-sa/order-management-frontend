@@ -9,12 +9,18 @@ import { PurveyorDashboardComponent } from './purveyor-dashboard/purveyor-dashbo
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { SearchCustomerComponent } from './search-customer/search-customer.component';
+import { OffersComponent } from './offers/offers.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
+  },
+  {
+    path: 'offer',
+    component: OffersComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'searchcustomer',

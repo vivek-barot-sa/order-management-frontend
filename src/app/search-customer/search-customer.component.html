@@ -5,12 +5,15 @@
                 <h3 class="mb-0">{{ hideCustomerDetail ? 'Search Customer' : 'Customer Details' }}</h3>
             </div>
             <div class="card-body">
-                <form class="form" *ngIf="hideCustomerDetail">
+                <form #searchUserForm="ngForm" class="form" *ngIf="hideCustomerDetail" (ngSubmit)="searchUserById()">
                     <div class="form-group">
                         <label>Enter Id:</label>
-                        <input [(ngModel)]="searchCustomer.uniqId" name="uniqId" type="number" class="form-control rounded-0" required>
+                        <input type="number" required [(ngModel)]="searchCustomer.uniqId" name="uniqId" #uniqId="ngModel" class="form-control rounded-0">
                     </div>
-                    <button (click)="searchUserById()" type="button" class="btn btn-success float-right">Seacrh</button>
+                    <div [hidden]="uniqId.valid || uniqId.pristine" class="alert alert-danger">
+                        UniqId is required.
+                    </div>
+                    <button type="submit" [disabled]="!searchUserForm.form.valid" class="btn btn-success float-right">Seacrh</button>
                 </form>
                 <div *ngIf="!hideCustomerDetail">
                     <div class="form-group">
@@ -30,13 +33,6 @@
                     </div>
                     <button (click)="searchAgain()" type="button" class="btn btn-success float-right">Search Again</button>
                 </div>
-                <!-- <form class="form" *ngIf="!hideCustomerDetail">
-                    <div class="form-group">
-                        <label>Enter Amount</label>
-                        <input [(ngModel)]="amount" name="amount" type="number" class="form-control rounded-0" required>
-                    </div>
-                    <button type="button" class="btn btn-success float-right">Submit</button>
-                </form> -->
             </div>
         </div>
     </div>

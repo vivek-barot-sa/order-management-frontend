@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../Services/auth.service';
+import { AuthService } from '../../Helpers/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   loginUserData = {}
+  success = true;
 
   constructor(private _auth: AuthService, private _router: Router) {
     if(this._auth.loggedIn()){
@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
       }else{
         this._router.navigate(['/customerDashboard']);
       }
-    }, err => console.log(err));
+      this.success = true;
+    }, err => {console.log(err); this.success = false;});
   }
 }

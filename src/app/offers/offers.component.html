@@ -1,0 +1,43 @@
+<div class="row pt-5">
+    <div class="col-md-6 mx-auto">
+        <div class="card rounded-0">
+            <div class="card-header">
+                <h3 class="mb-0">Add Offer</h3>
+            </div>
+            <div class="card-body">
+                <form #addOfferForm="ngForm" class="form">
+                    <div class="form-group">
+                        <label>Select OfferType</label>
+                        <select required [(ngModel)]="addOfferData.offertype" name="offertype" #offertype="ngModel" class="form-control rounded-0">
+                          <option selected disabled>Select Offer Type</option>
+                          <option value="purveyor">Reward Point</option>
+                          <option value="customer">Regular</option>
+                      </select>
+                    </div>
+                    <div [hidden]="offertype.valid || offertype.pristine" class="alert alert-danger">
+                        Please, Select Role.
+                    </div>
+                    <div class="form-group">
+                        <label>Offer Name</label>
+                        <input type="text" required [(ngModel)]="addOfferData.offername" name="offername" #offername="ngModel" class="form-control rounded-0">
+                    </div>
+                    <div [hidden]="offername.valid || offername.pristine" class="alert alert-danger">
+                        Offer name required.
+                    </div>
+                    <div class="form-group">
+                        <label>No. Of Claim</label>
+                        <input type="number" required [(ngModel)]="addOfferData.claim" name="claim" #claim="ngModel" class="form-control rounded-0">
+                    </div>
+                    <div [hidden]="claim.valid || claim.pristine" class="alert alert-danger">
+                        No. of claim required.
+                    </div>
+                    <div class="form-group">
+                        <label>Expiry Date</label>
+                        <input type="datetime-local" [(ngModel)]="addOfferData.expirydate" name="expirydate" #expirydate="ngModel" class="form-control rounded-0">
+                    </div>
+                    <button type="submit" [disabled]="!addOfferForm.form.valid" class="btn btn-primary float-right">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
